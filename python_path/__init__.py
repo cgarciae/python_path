@@ -2,7 +2,14 @@
 import sys, os
 
 class PythonPath(object):
-    def __init__(self, base, relative = None, get_real_path = True, base_is_file = True):
+    def __init__(self, base = None, relative = None, get_real_path = True):
+
+
+
+        if base is None:
+            base = os.getcwd()
+
+        base_is_file = not os.path.isdir(base)
 
         if get_real_path:
             base = os.path.realpath(base)
@@ -13,7 +20,11 @@ class PythonPath(object):
         if relative:
             base = os.path.join(base, relative)
 
+
+
         self.dir_path = os.path.realpath(base)
+
+        print(self.dir_path)
 
 
     def __enter__(self):
