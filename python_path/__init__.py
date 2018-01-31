@@ -4,8 +4,6 @@ import sys, os
 class PythonPath(object):
     def __init__(self, base = None, relative = None, get_real_path = True):
 
-
-
         if base is None:
             base = os.getcwd()
 
@@ -20,11 +18,7 @@ class PythonPath(object):
         if relative:
             base = os.path.join(base, relative)
 
-
-
         self.dir_path = os.path.realpath(base)
-
-        print(self.dir_path)
 
 
     def __enter__(self):

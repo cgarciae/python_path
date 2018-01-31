@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "python_path",
-    version = "0.0.3",
+    version = "0.0.4",
     author = "Cristian Garcia",
     author_email = "cgarcia.e88@gmail.com",
     description = ("A clean way to import scripts on other folders via a context manager."),
