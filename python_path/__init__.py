@@ -2,10 +2,13 @@
 import sys, os
 
 class PythonPath(object):
-    def __init__(self, path, relative_to = None):
+    def __init__(self, *path, **kwargs):
         """
         path: defines 
         """
+
+        relative_to = kwargs.get("relative_to", None)
+        path = os.path.join(*path)
 
         if not os.path.isabs(path):
             if relative_to is None:
