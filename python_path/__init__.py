@@ -2,23 +2,25 @@
 import sys, os
 
 class PythonPath(object):
-    def __init__(self, base = None, relative = None, get_real_path = True):
+    def __init__(self, path, relative_to = None):
+        """
+        path: defines 
+        """
 
-        if base is None:
-            base = os.getcwd()
+        if not os.path.isabs(path):
+            if relative_to is None:
+                base = os.getcwd()
+            else:
+                base = relative_to
 
-        base_is_file = not os.path.isdir(base)
+            base_is_file = not os.path.isdir(base)
 
-        if get_real_path:
-            base = os.path.realpath(base)
+            if base_is_file:
+                base = os.path.dirname(base)
 
-        if base_is_file:
-            base = os.path.dirname(base)
+            path = os.path.join(base, path)
 
-        if relative:
-            base = os.path.join(base, relative)
-
-        self.dir_path = os.path.realpath(base)
+        self.dir_path = os.path.realpath(path)
 
 
     def __enter__(self):
