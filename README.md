@@ -50,7 +50,7 @@ The previous is equivalent to:
 from python_path import PythonPath
 import os
 
-path = os.path.basename(__file__)
+path = os.path.dirname(__file__)
 path = os.path.join(path, "some_folder")
 
 with PythonPath(path):
