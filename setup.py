@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme:
     setup(
         name = "python_path",
-        version = "0.1.2",
+        version = "0.1.3",
         author = "Cristian Garcia",
         author_email = "cgarcia.e88@gmail.com",
         description = "A clean way to import scripts on other folders via a context manager.",
